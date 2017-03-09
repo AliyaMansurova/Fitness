@@ -22,8 +22,8 @@ public class User {
     //    last_name     VARCHAR(50)  NOT NULL,
     private String lastName;
 
-    //    pathronimic   VARCHAR(255),
-    private String pathronimic;
+    //    patronymic   VARCHAR(255),
+    private String patronymic;
 
     //    nickname      VARCHAR(50)  NOT NULL,
     private String nickname;
@@ -41,5 +41,5 @@ public class User {
     private String passwordHash;
 
     //status_code      VARCHAR(15)  NOT NULL,
-    Status status_code;
+    private String status_code;
 }

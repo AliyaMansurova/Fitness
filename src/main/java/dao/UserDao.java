@@ -20,4 +20,10 @@ public interface UserDao {
     void remove(User user);
 
     List<User> getAll();
+
+    boolean LoginFree(String nickName);
+    boolean isPasswordCorrect();
+    void update(User user);
+    User searchUser(String name);
+
 }
