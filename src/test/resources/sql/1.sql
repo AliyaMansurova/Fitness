@@ -9,6 +9,8 @@ CREATE TABLE User (
   email       VARCHAR(100) NOT NULL,
   password    VARCHAR(255) NOT NULL,
   status_code      VARCHAR(15)  NOT NULL,
+  UNIQUE (nickname),
+  UNIQUE (email)
 
 );
 
@@ -19,6 +21,27 @@ CREATE TABLE Status (
 CREATE TABLE MESSAGE (
 id          INT AUTO_INCREMENT PRIMARY KEY,
 id_from     INT,
-id_to       INT
-)
+id_to       INT,
+FOREIGN KEY(id_from) REFERENCES User(id),
+FOREIGN KEY(id_to) REFERENCES User(id),
+);
+
+CREATE TABLE Friends(
+id          INT AUTO_INCREMENT PRIMARY KEY,
+id_friend1    INT,
+id_friend2       INT,
+FOREIGN KEY(id_friend1) REFERENCES User(id),
+FOREIGN KEY(id_friend2) REFERENCES User(id),
+);
+
+CREATE TABLE Mission(
+id          INT AUTO_INCREMENT PRIMARY KEY,
+id_trainer    INT,
+id_sportsman      INT,
+mission VARCHAR (500) NOT NULL,
+state VARCHAR (10) NOT NULL,
+date DATE,
+FOREIGN KEY(id_trainer) REFERENCES User(id),
+FOREIGN KEY(id_sportsman) REFERENCES User(id),
+);
 
