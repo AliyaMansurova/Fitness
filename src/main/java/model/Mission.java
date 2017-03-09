@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import sun.util.resources.LocaleData;
+
+import java.time.LocalDate;
+
 
 @Data
 @Accessors(chain = true)
@@ -16,5 +18,5 @@ public class Mission {
     private int id_sportsman;
     private String mission;
     private String state;
-    private LocaleData data;
+    private LocalDate date;
 }
