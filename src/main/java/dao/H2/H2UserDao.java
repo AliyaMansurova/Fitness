@@ -4,6 +4,7 @@ import dao.UserDao;
 import lombok.SneakyThrows;
 import model.User;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,19 +14,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class H2UserDao implements UserDao {
-    private static final String SQL_SELECT_ALL="SELECT first_name,last_name,patronymic,nickname,dob,telephone,email,password,status_code FROM User";
+    private static final String SQL_SELECT_ALL="SELECT id,first_name,last_name,patronymic,nickname,dob,telephone,email,password,status_code FROM User";
     private DataSource dataSource;
+    public H2UserDao(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
     @Override
     @SneakyThrows
     public int create(User user) {
         try (Connection connection=dataSource.getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement("INSERT into Users(first_name,last_name,patronymic,nickname,dob," +
+        PreparedStatement preparedStatement=connection.prepareStatement("INSERT into User(first_name,last_name,patronymic,nickname,dob," +
                 "telephone,email,password,status_code) VALUES (?,?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
             preparedStatement.setObject(1,"first_name");
             preparedStatement.setObject(2,"last_name");
             preparedStatement.setObject(3,"patronymic");
             preparedStatement.setObject(4,"nickname");
-            preparedStatement.setObject(5,"bob");
+            preparedStatement.setObject(5,"dob");
             preparedStatement.setObject(6,"telephone");
             preparedStatement.setObject(7,"email");
             preparedStatement.setObject(8,"password");
@@ -61,7 +65,7 @@ public class H2UserDao implements UserDao {
                         resultSet.getString("last_name"),
                         resultSet.getString("patronymic"),
                         resultSet.getString("nickname"),
-                        resultSet.getDate("bob").toLocalDate(),
+                        resultSet.getDate("dob").toLocalDate(),
                         resultSet.getString("telephone"),
                         resultSet.getString("email"),
                         resultSet.getString("password"),
