@@ -1,0 +1,26 @@
+.wrapper {
+    width: 85%;
+    flex-wrap:nowrap;
+    background:darkslategrey;
+    display:inline-flex;
+    justify-content: space-around;
+    Align-items:center;
+}
+/* Decorations
+-------------------- */
+body {
+    background:white;
+}
+.btnhead{
+    font-family:Georgia;
+    color: white;
+    font-size: 25px;
+    background:deepskyblue;
+    border-radius: 4px ;
+}
+
+.header-item{
+    background:white;
+    padding:20px;
+
+}
