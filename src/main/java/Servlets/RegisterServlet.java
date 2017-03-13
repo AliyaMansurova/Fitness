@@ -44,11 +44,11 @@ public class RegisterServlet extends HttpServlet {
         User user=new User(2,firstname,lastname,patronymic,nickname,telephone,email,password,status);
         userDao.create(user);*/
         request.setAttribute(USER,userDao.getAll());
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/registration/index.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/registration/login.jsp");
         requestDispatcher.forward(request, response);
         /*String login = request.getParameter("login");
         String password=request.getParameter("password");
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/registration/index.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/registration/login.jsp");
         request.setAttribute(LOGIN, login);
         request.setAttribute(PASSWORD, password);
         requestDispatcher.forward(request, response);*/
