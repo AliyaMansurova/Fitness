@@ -29,4 +29,12 @@
         <servlet-name>InitLangServlet</servlet-name>
         <url-pattern>/InitLangServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SignInServlet</servlet-name>
+        <servlet-class>Servlets.SignInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignInServlet</servlet-name>
+        <url-pattern>/SignInServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

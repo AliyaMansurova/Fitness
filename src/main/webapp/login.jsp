@@ -6,13 +6,15 @@
 <body/>
 <%@ include file="/head.jsp"%>
 <%session.setAttribute("path","/login.jsp");%>
+<form action="/SignInServlet">
 <div class="signIn">
     <label class="labelLogin"><fmt:message key="login"/></label>
     <input type="text" class="textLogin" name="email" value="" /><br/>
     <label class="labelLogin"><fmt:message key="password"/></label>
     <input type="password" class="textLogin" name="password" value="" /><br/>
-    <button class="btnhead" name="signIn" formmethod="post"><fmt:message key="signIn"/></button>
+    <button class="btnhead" name="signIn" formmethod="get"><fmt:message key="signIn"/></button>
     <a href="/signUp.jsp" class="labelLogin" ><fmt:message key="signUp"/></a>
 </div>
+</form>
 </body>
 </html>

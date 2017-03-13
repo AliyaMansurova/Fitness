@@ -42,3 +42,26 @@ body {
     font-size: 20px;
     border-radius: 4px ;
 }
+.img{
+    height: 150px;
+    width: 150px;
+    border-radius: 100% ;
+}
+.fgItem{
+    display: flex;
+    width: 250px;
+    height: 250px;
+    flex-direction:column;
+    align-items: center;
+}
+.fg{
+    width: 100%;
+    height: 100%;
+    background:red;
+    display: flex;
+    flex-direction:row;
+    Align-items:flex-start;
+    flex-wrap:wrap;
+
+
+}

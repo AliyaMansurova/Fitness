@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 @WebServlet(name = "RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -43,6 +44,8 @@ public class RegisterServlet extends HttpServlet {
         String status=request.getParameter("status");
         User user=new User(2,firstname,lastname,patronymic,nickname,telephone,email,password,status);
         userDao.create(user);*/
+
+
         request.setAttribute(USER,userDao.getAll());
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/registration/login.jsp");
         requestDispatcher.forward(request, response);

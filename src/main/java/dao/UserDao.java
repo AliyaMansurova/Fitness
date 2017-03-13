@@ -15,11 +15,13 @@ public interface UserDao {
     }
 
     void remove(User user);
-
     List<User> getAll();
-
+    default  Optional<User> getUserByLogin(String email){
+        return getAll().stream()
+                .filter(user -> user.getEmail() == email)
+                .findAny();
+    }
     boolean LoginFree(String nickName);
-    boolean isPasswordCorrect();
     void update(User user);
     User searchUser(String name);
 

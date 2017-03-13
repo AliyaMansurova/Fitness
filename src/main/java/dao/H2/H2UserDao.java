@@ -91,11 +91,6 @@ public class H2UserDao implements UserDao {
     }
 
     @Override
-    public boolean isPasswordCorrect() {
-        return false;
-    }
-
-    @Override
     public void update(User user) {
 
     }
