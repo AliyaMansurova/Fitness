@@ -43,25 +43,30 @@ body {
     border-radius: 4px ;
 }
 .img{
-    height: 150px;
-    width: 150px;
+    height: 250px;
+    width: 250px;
     border-radius: 100% ;
 }
 .fgItem{
     display: flex;
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
     flex-direction:column;
     align-items: center;
 }
 .fg{
     width: 100%;
-    height: 100%;
-    background:red;
+    background:white;
     display: flex;
     flex-direction:row;
     Align-items:flex-start;
     flex-wrap:wrap;
-
-
+}
+.fgText{
+    font-family:Georgia;
+    color: blue;
+    font-size: 25px;
+}
+.imghead{
+    width: 100%;
 }

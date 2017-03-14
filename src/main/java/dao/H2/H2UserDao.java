@@ -14,31 +14,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class H2UserDao implements UserDao {
-    private static final String SQL_SELECT_ALL="SELECT id,first_name,last_name,patronymic,nickname,dob,telephone,email,password,status_code FROM User";
+    private static final String SQL_SELECT_ALL="SELECT id,first_name,last_name,patronymic," +
+            "gender_code,nickname,dob,telephone,email,password,height,weight,country,city,status_code,rating FROM User";
     private DataSource dataSource;
     public H2UserDao(DataSource dataSource) {
         this.dataSource = dataSource;
     }
+
     @Override
     @SneakyThrows
     public int create(User user) {
         try (Connection connection=dataSource.getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement("INSERT into User(first_name,last_name,patronymic,nickname,dob," +
-                "telephone,email,password,status_code) VALUES (?,?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
-            preparedStatement.setObject(1,"first_name");
-            preparedStatement.setObject(2,"last_name");
-            preparedStatement.setObject(3,"patronymic");
-            preparedStatement.setObject(4,"nickname");
-            preparedStatement.setObject(5,"dob");
-            preparedStatement.setObject(6,"telephone");
-            preparedStatement.setObject(7,"email");
-            preparedStatement.setObject(8,"password");
-            preparedStatement.setObject(9,"status_code");
+        PreparedStatement preparedStatement=connection.prepareStatement("INSERT into User(first_name,last_name,patronymic," +
+                "gender_code,nickname,dob,telephone,email,password,height,weight,country,city,status_code,rating) " +
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
+            preparedStatement.setObject(1,user.getFirstName());
+            preparedStatement.setObject(2,user.getLastName());
+            preparedStatement.setObject(3,user.getPatronymic());
+            preparedStatement.setObject(4,user.getGender_code());
+            preparedStatement.setObject(5,user.getNickname());
+            preparedStatement.setObject(6,user.getDob());
+            preparedStatement.setObject(7,user.getTelephone());
+            preparedStatement.setObject(8,user.getEmail());
+            preparedStatement.setObject(9,user.getPassword());
+            preparedStatement.setObject(10,user.getHeight());
+            preparedStatement.setObject(11,user.getWeight());
+            preparedStatement.setObject(12,user.getCountry());
+            preparedStatement.setObject(13,user.getCity());
+            preparedStatement.setObject(14,user.getStatus_code());
+            preparedStatement.setObject(15,user.getRating());
             preparedStatement.executeUpdate();
 
-
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                if (generatedKeys.next())
+                    user.setId(generatedKeys.getInt(1));
+            }
         }
-        return 0;
+        return user.getId();
     }
 
     @Override
@@ -64,12 +76,18 @@ public class H2UserDao implements UserDao {
                         resultSet.getString("first_name"),
                         resultSet.getString("last_name"),
                         resultSet.getString("patronymic"),
+                        resultSet.getString("gender_code"),
                         resultSet.getString("nickname"),
                         resultSet.getDate("dob").toLocalDate(),
                         resultSet.getString("telephone"),
                         resultSet.getString("email"),
                         resultSet.getString("password"),
-                        resultSet.getString("status_code")
+                        resultSet.getDouble("height"),
+                        resultSet.getDouble("weight"),
+                        resultSet.getString("country"),
+                        resultSet.getString("city"),
+                        resultSet.getString("status_code"),
+                        resultSet.getInt("rating")
                 ));
             return users;
         }
@@ -78,15 +96,14 @@ public class H2UserDao implements UserDao {
 
     @Override
     @SneakyThrows
-    public boolean LoginFree(String nickname) {
+    public boolean LoginFree(String email) {
         try (Connection connection=dataSource.getConnection();
-             PreparedStatement preparedStatement=connection.prepareStatement("SELECT FROM User WHERE nickname=?")) {
-            preparedStatement.setObject(1,nickname);
+             PreparedStatement preparedStatement=connection.prepareStatement("SELECT FROM User WHERE email=?")) {
+            preparedStatement.setObject(1,email);
             ResultSet resultSet=preparedStatement.getResultSet();
             if(resultSet.next())
                 return false;
             else return true;
-
         }
     }
 

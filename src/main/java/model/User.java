@@ -25,6 +25,8 @@ public class User {
     //    patronymic   VARCHAR(255),
     private String patronymic;
 
+    private String gender_code;
+
     //    nickname      VARCHAR(50)  NOT NULL,
     private String nickname;
 
@@ -38,8 +40,24 @@ public class User {
     private String email;
 
     //    password      VARCHAR(255) NOT NULL,
-    private String passwordHash;
+    private String password;
+
+    //   height FLOAT
+    private double height;
+
+    //  weight FLOAT
+    private double weight;
+
+    //country VARCHAR(60)
+    private String country;
+
+    //city VARCHAR(60)
+    private String city;
 
     //status_code      VARCHAR(15)  NOT NULL,
     private String status_code;
+
+    //rating INT,
+    private int rating;
+
 }

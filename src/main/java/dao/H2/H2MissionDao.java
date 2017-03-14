@@ -25,7 +25,7 @@ public class H2MissionDao implements MissionDao {
             preparedStatement.setObject(1,mission.getId_trainer());
             preparedStatement.setObject(2,mission.getId_sportsman());
             preparedStatement.setObject(3,mission.getMission());
-            preparedStatement.setObject(4,mission.getState());
+            preparedStatement.setObject(4,mission.isState());
             preparedStatement.setObject(5,mission.getDate());
             preparedStatement.executeUpdate();
 
@@ -34,7 +34,6 @@ public class H2MissionDao implements MissionDao {
     }
 
     @Override
-    @SneakyThrows
     public void missionIsDone(Mission mission) {
 
     }
@@ -57,7 +56,7 @@ public class H2MissionDao implements MissionDao {
                         resultSet.getInt("id_trainer"),
                         resultSet.getInt("id_sportsman"),
                         resultSet.getString("mission"),
-                        resultSet.getString("state"),
+                        resultSet.getBoolean("state"),
                         resultSet.getDate("date").toLocalDate()));}
 
             return missions;

@@ -13,10 +13,21 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Mission {
+    //id          INT AUTO_INCREMENT PRIMARY KEY
     private int id;
+
+    //id_trainer    INT
     private int id_trainer;
+
+    //id_sportsman      INT
     private int id_sportsman;
+
+    //mission VARCHAR (500) NOT NULL
     private String mission;
-    private String state;
+
+    //state BOOL NOT NULL
+    private boolean state;
+
+    //date DATE,
     private LocalDate date;
 }

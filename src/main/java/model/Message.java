@@ -12,7 +12,13 @@ import lombok.experimental.Accessors;
 public class Message {
     //    id            INT AUTO_INCREMENT PRIMARY KEY,
     private int id;
+
+    //id_from     INT
     private int id_from;
+
+    // id_to       INT
     private int id_to;
+
+    //message VARCHAR(1000) NOT NULL,
     private String message;
 }
