@@ -41,10 +41,10 @@ public class RegisterServlet extends HttpServlet {
         String city=request.getParameter("city");
         String status=request.getParameter("status");
         int rating=0;
+
         User user=new User(1,firstname,lastname,patronymic,gender,nickname,dob,telephone,email,password,height,weight,country,city,status,rating);
         System.out.print(user.toString());
         userDao.create(user);
-       // request.setAttribute(USER,userDao.getAll());
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.jsp");
         requestDispatcher.forward(request, response);
     }
