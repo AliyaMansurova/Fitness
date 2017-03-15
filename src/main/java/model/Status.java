@@ -1,5 +1,5 @@
 package model;
 
 public enum Status {
-    TRAINER, SPORTSMAN, UNKNOWN;
+    Sportsman,Trainer,Unknown
 }

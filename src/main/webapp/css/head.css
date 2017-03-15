@@ -59,7 +59,7 @@ body {
     background:white;
     display: flex;
     flex-direction:row;
-    Align-items:flex-start;
+    align-items:flex-start;
     flex-wrap:wrap;
 }
 .fgText{
