@@ -97,11 +97,11 @@ public class H2UserDao implements UserDao {
     @Override
     @SneakyThrows
     public boolean LoginFree(String email) {
-        try (Connection connection=dataSource.getConnection();
-             PreparedStatement preparedStatement=connection.prepareStatement("SELECT FROM User WHERE email=?")) {
-            preparedStatement.setObject(1,email);
-            ResultSet resultSet=preparedStatement.getResultSet();
-            if(resultSet.next())
+        try (Connection connection = dataSource.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT email FROM User WHERE email=?")){
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
                 return false;
             else return true;
         }

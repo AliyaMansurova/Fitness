@@ -24,7 +24,6 @@ CREATE TABLE User (
 
   FOREIGN KEY (gender_code) REFERENCES Gender (code),
   FOREIGN KEY (status_code) REFERENCES Status (code),
-  UNIQUE (nickname),
   UNIQUE (email)
 );
 

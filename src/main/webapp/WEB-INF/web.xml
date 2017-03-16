@@ -11,7 +11,7 @@
         <res-auth>Container</res-auth>
     </resource-ref>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>successfulRegistration.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
@@ -36,5 +36,13 @@
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/SignInServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SignOutServlet</servlet-name>
+        <servlet-class>Servlets.SignOutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignOutServlet</servlet-name>
+        <url-pattern>/SignOutServlet</url-pattern>
     </servlet-mapping>
 </web-app>
