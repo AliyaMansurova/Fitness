@@ -11,7 +11,7 @@
         <res-auth>Container</res-auth>
     </resource-ref>
     <welcome-file-list>
-        <welcome-file>myPage.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
@@ -44,5 +44,13 @@
     <servlet-mapping>
         <servlet-name>SignOutServlet</servlet-name>
         <url-pattern>/SignOutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FriendsServlet</servlet-name>
+        <servlet-class>Servlets.FriendsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FriendsServlet</servlet-name>
+        <url-pattern>/FriendsServlet</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -18,7 +18,6 @@ import java.time.LocalDate;
 
 @WebServlet(name = "RegisterServlet")
 public class RegisterServlet extends HttpServlet {
-    public static final String USER = "User";
     private UserDao userDao;
     @Override
     public void init(ServletConfig config) throws ServletException {

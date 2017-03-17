@@ -31,8 +31,8 @@ public class SignInServlet extends HttpServlet {
         user=Optional.ofNullable(userDao.getUserByLogin(login)).get().orElse(null);
         if (user != null)
             if (user.getPassword().equals(password)) {
-                request.getSession().setAttribute("user", "user");
-                requestDispatcher = request.getRequestDispatcher("/fitnesGuid.jsp");
+                request.getSession().setAttribute("user", user);
+                requestDispatcher = request.getRequestDispatcher("/friends.jsp");
             } else requestDispatcher = request.getRequestDispatcher("/login.jsp");
         else {
             requestDispatcher = request.getRequestDispatcher("/step.jsp");
