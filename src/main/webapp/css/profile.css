@@ -1,0 +1,24 @@
+.profile{
+    width: 100%;
+    height: 30%;
+    flex-wrap:nowrap;
+    background:pink;
+    display:inline-flex;
+    justify-content: flex-start;
+}
+.menu{
+    width: 100%;
+    height: 7%;
+    flex-wrap:nowrap;
+    background: white;
+    display:inline-flex;
+    justify-content:space-around;
+
+}
+.btnMenu{
+    height:100%;
+    background:white;
+    font-family:Georgia;
+    font-size: 25px;
+    color: #619ecb
+}

@@ -12,7 +12,7 @@
     <input type="text" class="textLogin" name="email" value="" /><br/>
     <label class="labelLogin"><fmt:message key="password"/></label>
     <input type="password" class="textLogin" name="password" value="" /><br/>
-    <button class="btnhead" name="signIn" formmethod="get"><fmt:message key="signIn"/></button>
+    <button class="btnBody" name="signIn" formmethod="get"><fmt:message key="signIn"/></button>
     <a href="/signUp.jsp" class="labelLogin" ><fmt:message key="signUp"/></a>
 </div>
 </form>
