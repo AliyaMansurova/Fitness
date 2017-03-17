@@ -27,11 +27,12 @@ CREATE TABLE User (
   UNIQUE (email)
 );
 
-CREATE TABLE MESSAGE (
+CREATE TABLE Message (
 id          INT AUTO_INCREMENT PRIMARY KEY,
 id_from     INT,
 id_to       INT,
 message VARCHAR(1000) NOT NULL,
+date DATE,
 FOREIGN KEY(id_from) REFERENCES User(id),
 FOREIGN KEY(id_to) REFERENCES User(id),
 );

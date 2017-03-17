@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.time.LocalDate;
+
 @Data
 @Accessors(chain = true)
 @AllArgsConstructor
@@ -21,4 +23,5 @@ public class Message {
 
     //message VARCHAR(1000) NOT NULL,
     private String message;
+    private LocalDate date;
 }

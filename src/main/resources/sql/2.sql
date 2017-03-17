@@ -110,6 +110,57 @@ VALUES ('Светлана',
         'Sportsman',
         0
         );
+        INSERT INTO User (first_name,last_name,patronymic,gender_code,nickname,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+VALUES ('Дмитрий',
+        'Сергеевия',
+        'Королёв',
+        'Male',
+        'Dima',
+        '1987-02-15',
+        '89998886612',
+        'Dima87@mail.ru',
+        'qwerty',
+        178,
+        78,
+        'Россия',
+        'Владимир',
+        'Trainer',
+        0
+        );
+        INSERT INTO User (first_name,last_name,patronymic,gender_code,nickname,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+VALUES ('Светлана',
+        'Антоновна',
+        'Иванова',
+        'Female',
+        'Sveta',
+        '1992-01-15',
+        '89658887722',
+        'SvAnt@mail.ru',
+        'qwerty',
+        175,
+        55,
+        'Россия',
+        'Уфа',
+        'Sportsman',
+        15
+        );
+        INSERT INTO User (first_name,last_name,patronymic,gender_code,nickname,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+VALUES ('Анатолий',
+        'Александрович',
+        'Смирнов',
+        'Male',
+        'Tolya',
+        '1978-04-15',
+        '89658887722',
+        'Tolya@mail.ru',
+        'qwerty',
+        188,
+        90,
+        'Россия',
+        'Москва',
+        'Sportsman',
+        25
+        );
 
 
 

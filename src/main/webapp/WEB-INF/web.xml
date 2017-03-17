@@ -53,4 +53,20 @@
         <servlet-name>FriendsServlet</servlet-name>
         <url-pattern>/FriendsServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteFriendServlet</servlet-name>
+        <servlet-class>Servlets.DeleteFriendServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteFriendServlet</servlet-name>
+        <url-pattern>/DeleteFriendServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MessageServlet</servlet-name>
+        <servlet-class>Servlets.MessageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MessageServlet</servlet-name>
+        <url-pattern>/MessageServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -10,7 +10,7 @@
 <div class="friendsList">
     <c:forEach items="${sessionScope.friends}" var="foundProfile">
         <div class="friendItem">
-           <div class="imgllock"><img class="imgFriend" src="/contant/images/logo.jpg"></div>
+            <div class="imgllock"><img class="imgFriend" src="/contant/images/logo.jpg"></div>
             <div class="textblok">
                 <a href="" class="textItem">${foundProfile.firstName} ${foundProfile.lastName}</a>
                 <div class="textItem">
@@ -19,7 +19,17 @@
                 <div class="textItem">
                     <fmt:message key="status"/>:${foundProfile.status_code}
                 </div>
+                <div class="textItem">
+                    <fmt:message key="status"/>:${foundProfile.id}
+                </div>
+                <form action="DeleteFriendServlet">
+                    <button class="btnDelete" name="deleteFriend" value="${foundProfile.id}" type="submit"
+                            formmethod="get">
+                        <fmt:message key="delete"/>
+                    </button>
+                </form>
             </div>
+
         </div>
     </c:forEach>
 </div>

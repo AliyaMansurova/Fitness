@@ -7,7 +7,7 @@
 
     <c:choose>
     <c:when test="${sessionScope.containsKey('user')}">
-        <form action="/step.jsp">
+        <form action="FriendsServlet">
             <button class="btnhead"  type="submit"><fmt:message key="mypage"/></button>
         </form>
         <form action="/SignOutServlet">
