@@ -32,6 +32,21 @@ public class SignInServlet extends HttpServlet {
         if (user != null)
             if (user.getPassword().equals(password)) {
                 request.getSession().setAttribute("user", user);
+                request.getSession().setAttribute("id",user.getId());
+                request.getSession().setAttribute("firstName",user.getFirstName());
+                request.getSession().setAttribute("lastName",user.getLastName());
+                request.getSession().setAttribute("patronymic",user.getPatronymic());
+                request.getSession().setAttribute("dob",user.getDob());
+                request.getSession().setAttribute("gender",user.getGender_code());
+                request.getSession().setAttribute("telephone",user.getTelephone());
+                request.getSession().setAttribute("email",user.getEmail());
+                request.getSession().setAttribute("password",user.getPassword());
+                request.getSession().setAttribute("height",user.getHeight());
+                request.getSession().setAttribute("weight",user.getWeight());
+                request.getSession().setAttribute("country",user.getCountry());
+                request.getSession().setAttribute("city",user.getCity());
+                request.getSession().setAttribute("status",user.getStatus_code());
+                request.getSession().setAttribute("rating",user.getRating());
                 requestDispatcher = request.getRequestDispatcher("/friends.jsp");
             } else requestDispatcher = request.getRequestDispatcher("/login.jsp");
         else {

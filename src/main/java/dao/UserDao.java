@@ -22,6 +22,6 @@ public interface UserDao {
     }
     boolean LoginFree(String email);
     void update(User user);
-    User searchUser(String name);
+    List<User> searchUsers(User user);
 
 }

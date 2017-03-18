@@ -8,7 +8,9 @@
     <form action="FriendsServlet">
         <button class="btnMenu" type="submit"><fmt:message key="friends"/></button>
     </form>
-    <button class="btnMenu" type="submit"><fmt:message key="aboutme"/></button>
+    <form action="aboutMe.jsp">
+        <button class="btnMenu" type="submit"><fmt:message key="aboutme"/></button>
+    </form>
     <button class="btnMenu" type="submit"><fmt:message key="tasks"/></button>
     <button class="btnMenu" type="submit"><fmt:message key="progress"/></button>
     <form action="MessageServlet">

@@ -10,7 +10,6 @@ CREATE TABLE User (
   last_name   VARCHAR(50)  NOT NULL,
   patronymic VARCHAR(255),
   gender_code VARCHAR (20) NOT NULL,
-  nickname    VARCHAR(50)  NOT NULL,
   dob         DATE,
   telephone   VARCHAR(100) NOT NULL,
   email       VARCHAR(100) NOT NULL,

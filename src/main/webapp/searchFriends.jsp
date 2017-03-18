@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="/css/friends.css">
-<% session.setAttribute("path", "/friends.jsp");%>
+<% session.setAttribute("path","/searchFriends.jsp");%>
 <%@ include file="myPageHead.jsp" %>
 <html>
 <head>
@@ -20,21 +20,21 @@
     </form>
 </div>
 <div class="friendsList">
-    <c:forEach items="${sessionScope.friends}" var="foundProfile">
+    <c:forEach items="${sessionScope.foundedUsers}" var="foundUsers">
         <div class="friendItem">
             <div class="imgllock"><img class="imgFriend" src="/contant/images/logo.jpg"></div>
             <div class="textblok">
-                <a href="" class="textItem">${foundProfile.firstName} ${foundProfile.lastName}</a>
+                <a href="" class="textItem">${foundUsers.firstName} ${foundUsers.lastName}</a>
                 <div class="textItem">
-                    <fmt:message key="rating"/>:${foundProfile.rating}
+                    <fmt:message key="rating"/>:${foundUsers.rating}
                 </div>
                 <div class="textItem">
-                    <fmt:message key="status"/>:${foundProfile.status_code}
+                    <fmt:message key="status"/>:${foundUsers.status_code}
                 </div>
-                <form action="DeleteFriendServlet">
-                    <button class="btnDelete" name="deleteFriend" value="${foundProfile.id}" type="submit"
+                <form action="AddFriendServlet">
+                    <button class="btnDelete" name="addFriend" value="${foundUsers.id}" type="submit"
                             formmethod="get">
-                        <fmt:message key="delete"/>
+                        <fmt:message key="add"/>
                     </button>
                 </form>
             </div>
@@ -43,3 +43,4 @@
 </div>
 </body>
 </html>
+

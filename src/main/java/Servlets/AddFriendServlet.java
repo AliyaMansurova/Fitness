@@ -1,8 +1,7 @@
 package Servlets;
 
-import dao.MessageDao;
+import dao.FriendDao;
 import dao.UserDao;
-import model.Message;
 import model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -13,15 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "MessageServlet")
-public class MessageServlet extends HttpServlet {
-    private MessageDao messageDao;
+@WebServlet(name = "AddFriendServlet")
+public class AddFriendServlet extends HttpServlet {
+    private FriendDao friendDao;
     private UserDao userDao;
-
     public void init(ServletConfig config) throws ServletException {
-        messageDao = (MessageDao) config.getServletContext().getAttribute("MessageDao");
+        friendDao = (FriendDao) config.getServletContext().getAttribute("FriendDao");
         userDao = (UserDao) config.getServletContext().getAttribute("UserDao");
     }
 
@@ -30,23 +29,17 @@ public class MessageServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer idFriend = Integer.valueOf(request.getParameter("addFriend"));
+        User user = (User) request.getSession().getAttribute("user");
         RequestDispatcher requestDispatcher;
-        User user;
-        user = (User) request.getSession().getAttribute("user");
         if (user != null) {
-            List<Message> inMessages = messageDao.inMessagesOfUser(user);
-            List<Message> outMessages = messageDao.outMessagesOfUser(user);
-            request.getSession().setAttribute("inMessages", inMessages);
-            request.getSession().setAttribute("outMessages", outMessages);
-            System.out.println(inMessages + "!!!");
-            System.out.println(outMessages + "&&&");
+            friendDao.addFriend(user.getId(), idFriend);
+            friendDao.addFriend(idFriend, user.getId());
+            List<Integer> friendsId = friendDao.getFriendsId(user.getId());
             requestDispatcher = request.getRequestDispatcher("/friends.jsp");
         } else {
             requestDispatcher = request.getRequestDispatcher("/index.jsp");
         }
         requestDispatcher.forward(request, response);
     }
-
 }
-
-

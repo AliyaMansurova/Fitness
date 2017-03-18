@@ -69,4 +69,28 @@
         <servlet-name>MessageServlet</servlet-name>
         <url-pattern>/MessageServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>Servlets.EditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/EditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SearchFriendsServlet</servlet-name>
+        <servlet-class>Servlets.SearchFriendsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchFriendsServlet</servlet-name>
+        <url-pattern>/SearchFriendsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddFriendServlet</servlet-name>
+        <servlet-class>Servlets.AddFriendServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddFriendServlet</servlet-name>
+        <url-pattern>/AddFriendServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

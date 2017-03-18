@@ -31,7 +31,6 @@ public class DeleteFriendServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer idFriend = Integer.valueOf(request.getParameter("deleteFriend"));
-        System.out.print("Delete " + idFriend);
         User user = (User) request.getSession().getAttribute("user");
         RequestDispatcher requestDispatcher;
         if (user != null) {

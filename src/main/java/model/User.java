@@ -27,9 +27,6 @@ public class User {
 
     private String gender_code;
 
-    //    nickname      VARCHAR(50)  NOT NULL,
-    private String nickname;
-
     //    dob           DATE,
     private LocalDate dob;
 

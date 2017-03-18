@@ -28,7 +28,6 @@ public class RegisterServlet extends HttpServlet {
         String lastname = request.getParameter("lastName");
         String patronymic = request.getParameter("patronymic");
         String gender = request.getParameter("gender");
-        String nickname = request.getParameter("nickname");
         Date date = Date.valueOf(request.getParameter("dob"));
         LocalDate dob = date.toLocalDate();
         String telephone = request.getParameter("telephone");
@@ -49,7 +48,7 @@ public class RegisterServlet extends HttpServlet {
         int rating = 0;
         String path;
         if (userDao.LoginFree(email)) {
-            User user = new User(1, firstname, lastname, patronymic, gender, nickname, dob, telephone, email, password, height, weight, country, city, status, rating);
+            User user = new User(1, firstname, lastname, patronymic, gender, dob, telephone, email, password, height, weight, country, city, status, rating);
             System.out.print(user.toString());
             userDao.create(user);
             path = "/successfulRegistration.jsp";
