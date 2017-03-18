@@ -1,11 +1,7 @@
 package Servlets;
 
-import dao.H2.H2UserDao;
 import dao.UserDao;
 import model.User;
-import sun.util.calendar.BaseCalendar;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -4,7 +4,6 @@ import dao.MessageDao;
 import dao.UserDao;
 import model.Message;
 import model.User;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -40,7 +39,7 @@ public class MessageServlet extends HttpServlet {
             request.getSession().setAttribute("outMessages", outMessages);
             System.out.println(inMessages + "!!!");
             System.out.println(outMessages + "&&&");
-            requestDispatcher = request.getRequestDispatcher("/friends.jsp");
+            requestDispatcher = request.getRequestDispatcher("/inMessages.jsp");
         } else {
             requestDispatcher = request.getRequestDispatcher("/index.jsp");
         }
