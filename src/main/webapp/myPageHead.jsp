@@ -11,8 +11,12 @@
     <form action="aboutMe.jsp">
         <button class="btnMenu" type="submit"><fmt:message key="aboutme"/></button>
     </form>
-    <button class="btnMenu" type="submit"><fmt:message key="tasks"/></button>
-    <button class="btnMenu" type="submit"><fmt:message key="progress"/></button>
+    <form action="MyMissionsServlet">
+    <button class="btnMenu" type="submit" name="task" value="/tasks.jsp"><fmt:message key="tasks"/></button>
+    </form>
+    <form action="MyMissionsServlet">
+    <button class="btnMenu" type="submit" name="task" value="/achievments.jsp"><fmt:message key="progress"/></button>
+    </form>
     <form action="MessageServlet">
         <button class="btnMenu" type="submit"><fmt:message key="messages"/></button>
     </form>

@@ -50,8 +50,16 @@ id_trainer    INT,
 id_sportsman      INT,
 mission VARCHAR (500) NOT NULL,
 state BOOL NOT NULL,
-date DATE,
+date_m DATE,
 FOREIGN KEY(id_trainer) REFERENCES User(id),
 FOREIGN KEY(id_sportsman) REFERENCES User(id),
 );
+
+CREATE TABLE Training(
+id          INT AUTO_INCREMENT PRIMARY KEY,
+id_trainer    INT,
+id_sportsman      INT,
+FOREIGN KEY(id_trainer) REFERENCES User(id),
+FOREIGN KEY(id_sportsman) REFERENCES User(id),
+)
 

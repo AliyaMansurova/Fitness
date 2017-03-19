@@ -47,43 +47,6 @@ public class H2MessageDao implements MessageDao {
         }
     }
 
-    @Override
-    @SneakyThrows
-    public boolean isRead(Message message) {
-        return false;
-    }
-
-    @Override
-    @SneakyThrows
-    public void messageIsRead(Message message) {
-        /*try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Message SET state = 'true' WHERE id=?")) {
-            preparedStatement.setObject(1, message.getId());
-            preparedStatement.executeUpdate();
-        }
-*/
-    }
-
-    @Override
-    @SneakyThrows
-    public List<Message> getAll() {
-        /*List<Message> messages = new ArrayList<>();
-        try (Connection connection = dataSource.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT u.id,u.first_name,u.last_name,u.patronymic," +
-                     "u.gender_code,u.dob,u.telephone,u.email,u.password,u.height,u.weight,u.country,u.city,u.status_code,u.rating," +
-                     "m.id,m.id_from,m.id_to,m.message,m.date FROM User u,Message m WHERE ")) {
-            while (resultSet.next())
-                messages.add(new Message(
-                        resultSet.getInt("id"),
-                        resultSet.getInt("id_from"),
-                        resultSet.getInt("id_to"),
-                        resultSet.getString("message"),
-                        resultSet.getDate("date").toLocalDate()                        //resultSet.getDate("date").toLocalDate()))
-                ));
-            return messages;*/
-        return null;
-    }
 
     @Override
     @SneakyThrows

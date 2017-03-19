@@ -1,9 +1,7 @@
 package listeners;
 
 
-import dao.H2.H2FriendDao;
-import dao.H2.H2MessageDao;
-import dao.H2.H2UserDao;
+import dao.H2.*;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContextEvent;
@@ -20,9 +18,13 @@ public class Injector implements ServletContextListener{
         H2UserDao h2UserDao = new H2UserDao(dataSource);
         H2FriendDao h2FriendDao=new H2FriendDao(dataSource);
         H2MessageDao h2MessageDao=new H2MessageDao(dataSource);
+        H2MissionDao h2MissionDao=new H2MissionDao(dataSource);
+        H2TrainingDao h2TrainingDao=new H2TrainingDao(dataSource);
         sce.getServletContext().setAttribute("UserDao", h2UserDao);
         sce.getServletContext().setAttribute("FriendDao", h2FriendDao);
         sce.getServletContext().setAttribute("MessageDao",h2MessageDao);
+        sce.getServletContext().setAttribute("MissionDao",h2MissionDao);
+        sce.getServletContext().setAttribute("TrainingDao",h2TrainingDao);
     }
 
     @Override

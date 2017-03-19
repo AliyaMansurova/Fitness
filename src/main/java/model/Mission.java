@@ -17,10 +17,10 @@ public class Mission {
     private int id;
 
     //id_trainer    INT
-    private int id_trainer;
+    private User id_trainer;
 
     //id_sportsman      INT
-    private int id_sportsman;
+    private User id_sportsman;
 
     //mission VARCHAR (500) NOT NULL
     private String mission;

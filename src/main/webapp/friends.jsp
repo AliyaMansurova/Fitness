@@ -22,7 +22,7 @@
 <div class="friendsList">
     <c:forEach items="${sessionScope.friends}" var="foundProfile">
         <div class="friendItem">
-            <div class="imgllock"><img class="imgFriend" src="/contant/images/logo.jpg"></div>
+            <div class="imgBlock"><img class="imgFriend" src="/contant/images/logo.jpg"></div>
             <div class="textblok">
                 <a href="" class="textItem">${foundProfile.firstName} ${foundProfile.lastName}</a>
                 <div class="textItem">

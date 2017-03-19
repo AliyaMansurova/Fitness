@@ -1,0 +1,58 @@
+.taskPage{
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.taskList{
+    width: 100%;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.taskItem{
+    width: 500px;
+    height: 200px;
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+
+}
+.imgBlock{
+    width: 170px;
+    height: 170px;
+}
+
+.imgTask{
+    height: 100px;
+    width: 100px;
+    border-radius:5%;
+}
+.textBlok{
+    width: 400px;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.textItem{
+    font-family:Georgia;
+    color: darkblue;
+    font-size: 20px;
+}
+.trainerItem{
+    width: 450px;
+    height: 200px;
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+}
+.imgTrainer {
+    height: 150px;
+    width: 150px;
+    border-radius:5%;
+}

@@ -109,5 +109,14 @@
         <servlet-name>NewMessageServlet</servlet-name>
         <url-pattern>/NewMessageServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>MyMissionsServlet</servlet-name>
+        <servlet-class>Servlets.MyMissionsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyMissionsServlet</servlet-name>
+        <url-pattern>/MyMissionsServlet</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
