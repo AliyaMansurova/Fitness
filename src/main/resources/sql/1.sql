@@ -31,7 +31,7 @@ id          INT AUTO_INCREMENT PRIMARY KEY,
 id_from     INT,
 id_to       INT,
 message VARCHAR(1000) NOT NULL,
-date DATE,
+date_m DATE,
 FOREIGN KEY(id_from) REFERENCES User(id),
 FOREIGN KEY(id_to) REFERENCES User(id),
 );

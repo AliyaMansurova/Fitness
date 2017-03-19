@@ -25,7 +25,6 @@ public class EditServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getSession().getAttribute("path").toString();
-        ;
         int id = (Integer) request.getSession().getAttribute("id");
         String firstname = request.getParameter("firstName");
         String lastname = request.getParameter("lastName");

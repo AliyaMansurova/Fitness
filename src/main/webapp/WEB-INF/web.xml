@@ -101,4 +101,13 @@
         <servlet-name>DeleteMessageServlet</servlet-name>
         <url-pattern>/DeleteMessageServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>NewMessageServlet</servlet-name>
+        <servlet-class>Servlets.NewMessageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewMessageServlet</servlet-name>
+        <url-pattern>/NewMessageServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

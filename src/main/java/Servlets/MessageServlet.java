@@ -37,8 +37,6 @@ public class MessageServlet extends HttpServlet {
             List<Message> outMessages = messageDao.outMessagesOfUser(user);
             request.getSession().setAttribute("inMessages", inMessages);
             request.getSession().setAttribute("outMessages", outMessages);
-            System.out.println(inMessages + "!!!");
-            System.out.println(outMessages + "&&&");
             requestDispatcher = request.getRequestDispatcher("/inMessages.jsp");
         } else {
             requestDispatcher = request.getRequestDispatcher("/index.jsp");
