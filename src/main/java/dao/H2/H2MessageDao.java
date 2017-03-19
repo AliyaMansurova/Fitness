@@ -35,13 +35,12 @@ public class H2MessageDao implements MessageDao {
 
     @Override
     @SneakyThrows
-    public void deleteMessage(Message message) {
-      /*  try (Connection connection = dataSource.getConnection();
+    public void deleteMessage(int id) {
+        try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Message WHERE id=?")) {
-            preparedStatement.setObject(1, message.getId_from());
+            preparedStatement.setObject(1, id);
             preparedStatement.executeUpdate();
         }
-*/
     }
 
     @Override
@@ -90,7 +89,7 @@ public class H2MessageDao implements MessageDao {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT u.first_name,u.last_name,u.patronymic," +
                              "u.gender_code,u.dob,u.telephone,u.email,u.password,u.height,u.weight,u.country,u.city," +
                              "u.status_code,u.rating,m.id,m.id_from,m.message,m.date FROM User u,Message m" +
-                             " WHERE m.id_from=u.id AND m.id_to=?")) {
+                             " WHERE m.id_from=u.id AND m.id_to=? ORDER BY m.date DESC")) {
             preparedStatement.setInt(1, user.getId());
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -127,7 +126,7 @@ public class H2MessageDao implements MessageDao {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT u.first_name,u.last_name,u.patronymic," +
                      "u.gender_code,u.dob,u.telephone,u.email,u.password,u.height,u.weight,u.country,u.city," +
                      "u.status_code,u.rating,m.id,m.id_to,m.message,m.date FROM User u,Message m" +
-                     " WHERE m.id_to=u.id AND m.id_from=?")) {
+                     " WHERE m.id_to=u.id AND m.id_from=? ORDER BY m.date DESC")) {
             preparedStatement.setInt(1, user.getId());
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

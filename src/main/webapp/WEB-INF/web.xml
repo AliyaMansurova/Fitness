@@ -93,4 +93,12 @@
         <servlet-name>AddFriendServlet</servlet-name>
         <url-pattern>/AddFriendServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteMessageServlet</servlet-name>
+        <servlet-class>Servlets.DeleteMessageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteMessageServlet</servlet-name>
+        <url-pattern>/DeleteMessageServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

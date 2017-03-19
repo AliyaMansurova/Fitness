@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface MessageDao {
     void newMessage(Message message);
-    void deleteMessage(Message message);
+    void deleteMessage(int id);
     boolean isRead(Message message);
     void messageIsRead(Message message);
     List <Message> getAll();

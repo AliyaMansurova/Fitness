@@ -18,6 +18,11 @@
                     <div class="textItem">
                             ${message.message}
                     </div>
+                    <form action="DeleteMessageServlet">
+                    <button class="btnDelete" name="deleteMessage" value="${message.id}" type="submit" formmethod="get">
+                        <fmt:message key="delete"/>
+                    </button>
+                    </form>
                 </div>
             </div>
         </c:forEach>
