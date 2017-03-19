@@ -11,7 +11,7 @@
         <res-auth>Container</res-auth>
     </resource-ref>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>fitnesGuid.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
@@ -133,6 +133,29 @@
         <servlet-name>DeleteMissionServlet</servlet-name>
         <url-pattern>/DeleteMissionServlet</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>CompleteMissionServlet</servlet-name>
+        <servlet-class>Servlets.CompleteMissionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CompleteMissionServlet</servlet-name>
+        <url-pattern>/CompleteMissionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>NewTaskServlet</servlet-name>
+        <servlet-class>Servlets.NewTaskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewTaskServlet</servlet-name>
+        <url-pattern>/NewTaskServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddTrainingServlet</servlet-name>
+        <servlet-class>Servlets.AddTrainingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTrainingServlet</servlet-name>
+        <url-pattern>/AddTrainingServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

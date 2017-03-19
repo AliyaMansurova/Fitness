@@ -74,5 +74,8 @@ body {
     font-family:Georgia;
     font-size: 25px;
     color: white;
-
+}
+.row{
+    display: flex;
+    flex-direction: row;
 }

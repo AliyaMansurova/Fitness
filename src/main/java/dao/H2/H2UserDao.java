@@ -92,6 +92,37 @@ public class H2UserDao implements UserDao {
         }
     }
 
+    @Override
+    @SneakyThrows
+    public List<User> raiting() {List<User> users = new ArrayList<>();
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT id,first_name,last_name,patronymic," +
+                     "gender_code,dob,telephone,email,password,height,weight,country,city,status_code," +
+                     "rating FROM User ORDER BY ratinf DESC")) {
+            while (resultSet.next())
+                users.add(new User(
+                        resultSet.getInt("id"),
+                        resultSet.getString("first_name"),
+                        resultSet.getString("last_name"),
+                        resultSet.getString("patronymic"),
+                        resultSet.getString("gender_code"),
+                        resultSet.getDate("dob").toLocalDate(),
+                        resultSet.getString("telephone"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password"),
+                        resultSet.getDouble("height"),
+                        resultSet.getDouble("weight"),
+                        resultSet.getString("country"),
+                        resultSet.getString("city"),
+                        resultSet.getString("status_code"),
+                        resultSet.getInt("rating")
+                ));
+            return users;
+        }
+
+    }
+
 
     @Override
     @SneakyThrows

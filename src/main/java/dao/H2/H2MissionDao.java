@@ -24,22 +24,31 @@ public class H2MissionDao implements MissionDao {
     @Override
     @SneakyThrows
     public void newMission(Mission mission) {
-      /*  try (Connection connection=dataSource.getConnection();
-             PreparedStatement preparedStatement=connection.prepareStatement("INSERT INTO Mission(id_traner,id_sportsman,mission,state,date)" +
-                     "VALUES (?,?,?,?,?)")){
-            preparedStatement.setObject(1,mission.getId_trainer());
-            preparedStatement.setObject(2,mission.getId_sportsman());
-            preparedStatement.setObject(3,mission.getMission());
-            preparedStatement.setObject(4,mission.isState());
-            preparedStatement.setObject(5,mission.getDate());
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Mission" +
+                     "(id_trainer,id_sportsman,mission,state,date_m)"+
+                     "VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setObject(1, mission.getId_trainer().getId());
+            preparedStatement.setObject(2, mission.getId_sportsman().getId());
+            preparedStatement.setObject(3, mission.getMission());
+            preparedStatement.setObject(4, mission.isState());
+            preparedStatement.setObject(5, mission.getDate());
             preparedStatement.executeUpdate();
-
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                if (generatedKeys.next())
+                    mission.setId(generatedKeys.getInt(1));
+            }
         }
-*/
     }
 
     @Override
-    public void missionIsDone(Mission mission) {
+    @SneakyThrows
+    public void missionIsDone(int id) {
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Mission SET state=TRUE WHERE id=?")) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        }
 
     }
 

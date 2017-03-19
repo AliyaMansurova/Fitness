@@ -20,6 +20,8 @@
     <form action="MessageServlet">
         <button class="btnMenu" type="submit"><fmt:message key="messages"/></button>
     </form>
+    <form action="rating.jsp">
     <button class="btnMenu" type="submit"><fmt:message key="best"/></button>
+    </form>
 </div>
 

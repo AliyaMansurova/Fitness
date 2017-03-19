@@ -31,12 +31,23 @@
                 <div class="textItem">
                     <fmt:message key="status"/>:${foundProfile.status_code}
                 </div>
-                <form action="DeleteFriendServlet">
-                    <button class="btnDelete" name="deleteFriend" value="${foundProfile.id}" type="submit"
-                            formmethod="get">
-                        <fmt:message key="delete"/>
-                    </button>
-                </form>
+                <div class="row">
+                    <form action="DeleteFriendServlet">
+                        <button class="btnDelete" name="deleteFriend" value="${foundProfile.id}" type="submit"
+                                formmethod="get">
+                            <fmt:message key="delete"/>
+                        </button>
+                    </form>
+                    <c:if test="${sessionScope.containsKey('trainer')}">
+                        <form action="AddTrainingServlet">
+                        <button class="btnDelete" name="addSportsman" value="${foundProfile.id}" type="submit"
+                                formmethod="get">
+                            <fmt:message key="train"/>
+                        </button>
+                        </form>
+                    </c:if>
+                </div>
+
             </div>
         </div>
     </c:forEach>
