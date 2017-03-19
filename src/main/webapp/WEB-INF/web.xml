@@ -117,6 +117,22 @@
         <servlet-name>MyMissionsServlet</servlet-name>
         <url-pattern>/MyMissionsServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteTrainingServlet</servlet-name>
+        <servlet-class>Servlets.DeleteTrainingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteTrainingServlet</servlet-name>
+        <url-pattern>/DeleteTrainingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteMissionServlet</servlet-name>
+        <servlet-class>Servlets.DeleteMissionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteMissionServlet</servlet-name>
+        <url-pattern>/DeleteMissionServlet</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

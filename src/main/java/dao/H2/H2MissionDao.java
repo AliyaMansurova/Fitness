@@ -16,6 +16,7 @@ import java.util.List;
 public class H2MissionDao implements MissionDao {
 
     private DataSource dataSource;
+
     public H2MissionDao(DataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -43,29 +44,15 @@ public class H2MissionDao implements MissionDao {
     }
 
     @Override
-    public void deleteMission(Mission mission) {
-
-    }
-
-    @Override
     @SneakyThrows
-    public List<Mission> getAllMissions(User user) {
-   /*     List<Mission> missions=new ArrayList<>();
-        try (Connection connection=dataSource.getConnection();
-             Statement statement=connection.createStatement()){
-            ResultSet resultSet=statement.executeQuery("SELECT id,id_trainer,id_sportsman,mission,state,date FROM Mission");
-            while (resultSet.next())
-                missions.add(new Mission(
-                        resultSet.getInt("id"),
-                        resultSet.getInt("id_trainer"),
-                        resultSet.getInt("id_sportsman"),
-                        resultSet.getString("mission"),
-                        resultSet.getBoolean("state"),
-                        resultSet.getDate("date").toLocalDate()));}
-
-            return missions;*/
-        return null;
+    public void deleteMission(int id) {
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Mission WHERE id=?")) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        }
     }
+
 
     @Override
     @SneakyThrows
