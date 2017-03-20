@@ -33,7 +33,6 @@ public class DeleteFriendServlet extends HttpServlet {
         Integer idFriend = Integer.valueOf(request.getParameter("deleteFriend"));
         User user = (User) request.getSession().getAttribute("user");
         RequestDispatcher requestDispatcher;
-        if (user != null) {
             friendDao.deleteFriend(user.getId(), idFriend);
             friendDao.deleteFriend(idFriend, user.getId());
             List<Integer> friendsId = friendDao.getFriendsId(user.getId());
@@ -41,9 +40,6 @@ public class DeleteFriendServlet extends HttpServlet {
             friendsId.stream().forEach(id -> friends.add(userDao.get(id).get()));
             request.getSession().setAttribute("friends", friends);
             requestDispatcher = request.getRequestDispatcher("/friends.jsp");
-        } else {
-            requestDispatcher = request.getRequestDispatcher("/index.jsp");
-        }
         requestDispatcher.forward(request, response);
     }
 }

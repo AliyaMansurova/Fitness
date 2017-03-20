@@ -19,22 +19,22 @@
 <form action="EditServlet" method="get">
     <div class="Information">
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="firstName"/></label>
+            <label class="labelInf"><fmt:message key="firstName"/>:</label>
             <input type="text" class="textInf" name="firstName" value="${sessionScope.firstName}" required="required"
                    pattern="[A-Za-zА-Яа-яЁё]{2,50}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="lastName"/></label>
+            <label class="labelInf"><fmt:message key="lastName"/>:</label>
             <input type="text" class="textInf" name="lastName" value="${sessionScope.lastName}" required="required"
                    pattern="[A-Za-zА-Яа-яЁё]{2,50}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="patronymic"/></label>
+            <label class="labelInf"><fmt:message key="patronymic"/>:</label>
             <input type="text" class="textInf" name="patronymic" value="${sessionScope.patronymic}"
                    pattern="[A-Za-zА-Яа-яЁё]{2,255}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="gender"/></label>
+            <label class="labelInf"><fmt:message key="gender"/>:</label>
             <c:choose>
                 <c:when test="${sessionScope.gender eq 'Unknown'}">
                     <select class="selectInf" name="gender">
@@ -60,32 +60,32 @@
             </c:choose>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="dob"/></label>
+            <label class="labelInf"><fmt:message key="dob"/>:</label>
             <input type="date" max="2017-01-01" min="1910-01-01" class="textInf" name="dob"
                    value="${sessionScope.dob}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="height"/></label>
+            <label class="labelInf"><fmt:message key="height"/>:</label>
             <input type="text" class="textInf" name="height" value="${sessionScope.height}"
                    pattern="[0-9]{0,3}[/.][0-9]{0,3}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="weight"/></label>
+            <label class="labelInf"><fmt:message key="weight"/>:</label>
             <input type="text" class="textInf" name="weight" value="${sessionScope.weight}"
                    pattern="[0-9]{0,3}[/.][0-9]{0,3}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="country"/></label>
+            <label class="labelInf"><fmt:message key="country"/>:</label>
             <input type="text" class="textInf" name="country" value="${sessionScope.country}"
                    pattern="[A-Za-zА-Яа-яЁё\s]{2,60}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="city"/></label>
+            <label class="labelInf"><fmt:message key="city"/>:</label>
             <input type="text" class="textInf" name="city" value="${sessionScope.city}"
                    pattern="[A-Za-zА-Яа-яЁё\s]{2,60}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="status"/></label>
+            <label class="labelInf"><fmt:message key="status"/>:</label>
             <c:choose>
                 <c:when test="${sessionScope.status eq 'Unknown'}">
                     <select class="selectInf" name="status">
@@ -111,22 +111,22 @@
             </c:choose>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="city"/></label>
+            <label class="labelInf"><fmt:message key="city"/>:</label>
             <input type="text" class="textInf" name="city" value="${sessionScope.city}"
                    pattern="[A-Za-zА-Яа-яЁё\s]{2,60}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="telephone"/></label>
+            <label class="labelInf"><fmt:message key="telephone"/>:</label>
             <input type="tel" class="textInf" name="telephone" value="${sessionScope.telephone}" required="required"
                    pattern="[0-9]{6,11}" placeholder="89650001122"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="email"/></label>
+            <label class="labelInf"><fmt:message key="email"/>:</label>
             <input type="email" class="textInf" name="email" value="${sessionScope.email}" required="required"
                    pattern="[0-9a-zA-Z_]+@[0-9a-zA-Z_]+[/.][a-z]{2,3}"/>
         </div>
         <div class="inf-item">
-            <label class="labelInf"><fmt:message key="password"/></label>
+            <label class="labelInf"><fmt:message key="password"/>:</label>
             <input type="password" class="textInf" name="password" value="${sessionScope.password}"
                    required="required"/>
         </div>

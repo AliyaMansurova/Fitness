@@ -1,23 +1,53 @@
 .profile{
     width: 100%;
     height: 30%;
-    flex-wrap:nowrap;
-    background:pink;
     display:inline-flex;
+    flex-wrap:nowrap;
     justify-content: flex-start;
+    background-image: linear-gradient(#ab97d0, #d9d9d9);
+    flex-direction: row;
+}
+.imgBlockProfile{
+    display:inline-flex;
+    flex-wrap:nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.imgProfile{
+    height: 100%;
+
+}
+.textblok{
+    width: 350px;
+    height: auto;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.textName{
+    font-family:Georgia;
+    color: darkblue;
+    font-size: 35px;
+}
+.textItem{
+    font-family:Georgia;
+    color: darkblue;
+    font-size: 20px;
 }
 .menu{
     width: 100%;
     height: 7%;
     flex-wrap:nowrap;
-    background: white;
+    background:  #d4d4d4;
     display:inline-flex;
     justify-content:space-around;
 
 }
 .btnMenu{
     height:100%;
-    background:white;
+    background: white;
     font-family:Georgia;
     font-size: 25px;
     color: #619ecb

@@ -7,6 +7,7 @@
             <a href="/mySportsmans.jsp" class="message-link"><fmt:message key="mySportsmans"/></a>
             <a href="/tasksForMySportsmans.jsp" class="message-link"><fmt:message key="tasksFor"/></a>
             <a href="/newTask.jsp" class="message-link"><fmt:message key="newTask"/></a>
+            <a href="NewSportsmenServlet" class="message-link"><fmt:message key="newSportsman"/></a>
         </c:when>
     </c:choose>
 </div>

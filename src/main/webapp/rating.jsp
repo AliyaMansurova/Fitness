@@ -6,8 +6,9 @@
 <head>
 </head>
 <body>
+<div class="empty"></div>
 <div class="friendsList">
-    <c:forEach items="${sessionScope.friends}" var="foundProfile">
+    <c:forEach items="${sessionScope.rating}" var="foundProfile">
         <div class="friendItem">
             <div class="imgBlock"><img class="imgFriend" src="/contant/images/logo.jpg"></div>
             <div class="textblok">

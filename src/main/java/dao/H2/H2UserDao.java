@@ -94,12 +94,12 @@ public class H2UserDao implements UserDao {
 
     @Override
     @SneakyThrows
-    public List<User> raiting() {List<User> users = new ArrayList<>();
+    public List<User> rating() {List<User> users = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT id,first_name,last_name,patronymic," +
                      "gender_code,dob,telephone,email,password,height,weight,country,city,status_code," +
-                     "rating FROM User ORDER BY ratinf DESC")) {
+                     "rating FROM User ORDER BY rating DESC LIMIT 10")) {
             while (resultSet.next())
                 users.add(new User(
                         resultSet.getInt("id"),

@@ -46,14 +46,6 @@
         <url-pattern>/SignOutServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>FriendsServlet</servlet-name>
-        <servlet-class>Servlets.FriendsServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>FriendsServlet</servlet-name>
-        <url-pattern>/FriendsServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>DeleteFriendServlet</servlet-name>
         <servlet-class>Servlets.DeleteFriendServlet</servlet-class>
     </servlet>
@@ -156,6 +148,14 @@
     <servlet-mapping>
         <servlet-name>AddTrainingServlet</servlet-name>
         <url-pattern>/AddTrainingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>NewSportsmenServlet</servlet-name>
+        <servlet-class>Servlets.NewSportsmenServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewSportsmenServlet</servlet-name>
+        <url-pattern>/NewSportsmenServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

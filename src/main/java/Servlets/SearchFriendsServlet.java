@@ -28,7 +28,6 @@ public class SearchFriendsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> friends =(List<User>) request.getSession().getAttribute("friends");
-        System.out.println(friends+"frr");
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String gender=request.getParameter("gender");
@@ -41,7 +40,6 @@ public class SearchFriendsServlet extends HttpServlet {
         for(User u:founded)
             if(!friends.contains(u))
                 foundUsers.add(u);
-        System.out.print(foundUsers);
         request.getSession().setAttribute("foundedUsers",foundUsers);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/searchFriends.jsp");
         dispatcher.forward(request,response);

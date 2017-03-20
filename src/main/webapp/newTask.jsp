@@ -4,6 +4,7 @@
 <head></head>
 <body>
 <%session.setAttribute("path", "/newTask.jsp");%>
+<div class="empty"></div>
 <div class="messagePage">
     <%@ include file="tasksPanel.jsp"%>
     <form action="NewTaskServlet" class="messageForm">

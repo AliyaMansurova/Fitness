@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "AddFriendServlet")
@@ -35,8 +36,10 @@ public class AddFriendServlet extends HttpServlet {
         friendDao.addFriend(user.getId(), idFriend);
         friendDao.addFriend(idFriend, user.getId());
         List<Integer> friendsId = friendDao.getFriendsId(user.getId());
+        List<User> friends = new ArrayList<>();
+        friendsId.stream().forEach(id -> friends.add(userDao.get(id).get()));
+        request.getSession().setAttribute("friends", friends);
         requestDispatcher = request.getRequestDispatcher("/friends.jsp");
-
         requestDispatcher.forward(request, response);
     }
 }

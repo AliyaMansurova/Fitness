@@ -4,6 +4,7 @@
 <head></head>
 <body>
 <%session.setAttribute("path", "/inMessages.jsp");%>
+<div class="empty"></div>
 <div class="messagePage">
     <%@ include file="messagePanel.jsp" %>
     <div class="message">

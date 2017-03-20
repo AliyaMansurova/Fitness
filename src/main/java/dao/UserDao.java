@@ -15,7 +15,7 @@ public interface UserDao {
     }
     void remove(User user);
     List<User> getAll();
-    List<User> raiting();
+    List<User> rating();
     default  Optional<User> getUserByLogin(String email){
         return getAll().stream()
                 .filter(user -> user.getEmail().equals(email))

@@ -6,6 +6,16 @@
 <body/>
 <%@ include file="/head.jsp"%>
 <%session.setAttribute("path","/login.jsp");%>
+<c:if test="${sessionScope.containsKey('invalidEmail')}">
+            <span class="loginNotFree">
+                <fmt:message key="invalidEmail"/>
+            </span>
+</c:if>
+<c:if test="${sessionScope.containsKey('invalidPassword')}">
+            <span class="loginNotFree">
+                <fmt:message key="invalidPassword"/>
+            </span>
+</c:if>
 <form action="/SignInServlet">
 <div class="signIn">
     <label class="labelLogin"><fmt:message key="login"/></label>
