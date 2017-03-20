@@ -45,7 +45,7 @@ public class SignInServlet extends HttpServlet {
         user = Optional.ofNullable(userDao.getUserByLogin(login)).get().orElse(null);
         if (user != null)
             if (user.getPassword().equals(password)) {
-                logger.log(Level.INFO,String.format("User %s %s entered",user.getFirstName(),user.getLastName()));
+                logger.log(Level.INFO,"User  entered");
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("id", user.getId());
                 request.getSession().setAttribute("firstName", user.getFirstName());
@@ -63,12 +63,12 @@ public class SignInServlet extends HttpServlet {
                 request.getSession().setAttribute("status", user.getStatus_code());
                 request.getSession().setAttribute("rating", user.getRating());
                 requestDispatcher = request.getRequestDispatcher("/friends.jsp");
-                List<User> rating = userDao.rating();
+                List<User> ratingList = userDao.rating();
                 List<Integer> friendsId = friendDao.getFriendsId(user.getId());
                 List<User> friends = new ArrayList<>();
                 friendsId.stream().forEach(id -> friends.add(userDao.get(id).get()));
                 request.getSession().setAttribute("friends", friends);
-                request.getSession().setAttribute("rating", rating);
+                request.getSession().setAttribute("ratingList", ratingList);
             } else {
                 request.getSession().setAttribute("invalidPassword", "Yes");
                 requestDispatcher = request.getRequestDispatcher("/login.jsp");

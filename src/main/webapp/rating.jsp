@@ -9,7 +9,7 @@
 <mytag:path path="/rating.jsp"/>
 <div class="empty"></div>
 <div class="friendsList">
-    <c:forEach items="${sessionScope.rating}" var="foundProfile">
+    <c:forEach items="${sessionScope.ratingList}" var="foundProfile">
         <div class="friendItem">
             <div class="imgBlock"><img class="imgFriend" src="/contant/images/logo.jpg"></div>
             <div class="textblok">

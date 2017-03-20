@@ -85,7 +85,7 @@ public class EditServlet extends HttpServlet {
         request.getSession().setAttribute("city", user.getCity());
         request.getSession().setAttribute("status", user.getStatus_code());
         request.getSession().setAttribute("rating", user.getRating());
-        logger.log(Level.INFO,String.format("User %s %s changed information",user.getFirstName(),user.getLastName()));
+        logger.log(Level.INFO,"User changed information");
         request.getRequestDispatcher(path).forward(request, response);
     }
 

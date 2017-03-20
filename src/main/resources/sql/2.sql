@@ -12,7 +12,7 @@ VALUES ('Иван',
         'Россия',
         'Москва',
         'Trainer',
-        0
+        2
         );
 INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
 VALUES ('Мария',
@@ -28,9 +28,9 @@ VALUES ('Мария',
         'Россия',
         'Москва',
         'Sportsman',
-        0
+        3
         );
-       INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
 VALUES ('Дмитрий',
         'Смирнов',
         'Сергеевич',
@@ -46,10 +46,10 @@ VALUES ('Дмитрий',
         'Trainer',
         0
         );
-       INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
 VALUES ('Алексей',
-        'Дмитриевич',
         'Петров',
+        'Дмитриевич',
         'Male',
         '1979-11-02',
         '89671113322',
@@ -60,12 +60,12 @@ VALUES ('Алексей',
         'Россия',
         'Москва',
         'Sportsman',
-        0
+        2
         );
-        INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
 VALUES ('Ирина',
-        'Максимовна',
         'Михайлова',
+        'Максимовна',
         'Female',
         '1992-03-15',
         '89671113322',
@@ -76,12 +76,12 @@ VALUES ('Ирина',
         'Россия',
         'Москва',
         'Sportsman',
-        0
+        4
         );
- INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
 VALUES ('Светлана',
-        'Сергеевна',
         'Смирнова',
+        'Сергеевна',
         'Female',
         '1987-01-15',
         '89998887722',
@@ -94,10 +94,10 @@ VALUES ('Светлана',
         'Sportsman',
         0
         );
-        INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
 VALUES ('Дмитрий',
-        'Сергеевия',
         'Королёв',
+        'Сергеевия',
         'Male',
         '1987-02-15',
         '89998886612',
@@ -110,10 +110,10 @@ VALUES ('Дмитрий',
         'Trainer',
         0
         );
-        INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
 VALUES ('Светлана',
-        'Антоновна',
-        'Иванова',
+        'Антонова',
+        'Ивановна',
         'Female',
         '1992-01-15',
         '89658887722',
@@ -124,12 +124,12 @@ VALUES ('Светлана',
         'Россия',
         'Уфа',
         'Sportsman',
-        15
+        0
         );
-        INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
 VALUES ('Анатолий',
-        'Александрович',
         'Смирнов',
+        'Александрович',
         'Male',
         '1978-04-15',
         '89658887722',
@@ -140,10 +140,72 @@ VALUES ('Анатолий',
         'Россия',
         'Москва',
         'Sportsman',
-        25
+        0
         );
-
-
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+VALUES ('Нина',
+        'Романова',
+        'Александровна',
+        'Female',
+        '1996-04-17',
+        '89658886622',
+        'Nina@mail.ru',
+        'qwerty',
+        180,
+        55,
+        'Россия',
+        'Воронеж',
+        'Sportsman',
+        0
+        );
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+VALUES ('Оксана',
+        'Иванова',
+        'Александровна',
+        'Female',
+        '1993-04-20',
+        '89658886622',
+        'Oksana@mail.ru',
+        'qwerty',
+        178,
+        55,
+        'Беларусь',
+        'Минск',
+        'Trainer',
+        0
+        );
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+VALUES ('Роман',
+        'Сорокин',
+        'Романович',
+        'Male',
+        '1986-04-23',
+        '89658886611',
+        'Roma@mail.ru',
+        'qwerty',
+        178,
+        69,
+        'Беларусь',
+        'Брест',
+        'Sportsman',
+        0
+        );
+INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
+VALUES ('Мария',
+        'Иванова',
+        'Александровна',
+        'Female',
+        '1989-04-23',
+        '89658881511',
+        'Mia@mail.ru',
+        'qwerty',
+        175,
+        69,
+        'Беларусь',
+        'Брест',
+        'Sportsman',
+        0
+        );
 
 
 

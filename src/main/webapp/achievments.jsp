@@ -7,6 +7,7 @@
 </head>
 <body>
 <mytag:path path="/achievments.jsp"/>
+<div class="empty"></div>
 <div class="taskList">
     <c:forEach items="${sessionScope.achievments}" var="achieve">
         <div class="taskItem">

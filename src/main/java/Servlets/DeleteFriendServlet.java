@@ -38,7 +38,7 @@ public class DeleteFriendServlet extends HttpServlet {
         RequestDispatcher requestDispatcher;
             friendDao.deleteFriend(user.getId(), idFriend);
             friendDao.deleteFriend(idFriend, user.getId());
-            logger.log(Level.INFO,String.format("User %s %s deleted friend",user.getFirstName(),user.getLastName()));
+            logger.log(Level.INFO,"User deleted friend");
             List<Integer> friendsId = friendDao.getFriendsId(user.getId());
             List<User> friends = new ArrayList<>();
             friendsId.stream().forEach(id -> friends.add(userDao.get(id).get()));

@@ -41,7 +41,7 @@ public class AddFriendServlet extends HttpServlet {
         List<Integer> friendsId = friendDao.getFriendsId(user.getId());
         List<User> friends = new ArrayList<>();
         friendsId.stream().forEach(id -> friends.add(userDao.get(id).get()));
-        logger.log(Level.INFO,String.format("User %s %s adds friend",user.getFirstName(),user.getLastName()));
+        logger.log(Level.INFO,"User adds friend");
         request.getSession().setAttribute("friends", friends);
         requestDispatcher = request.getRequestDispatcher("/friends.jsp");
         requestDispatcher.forward(request, response);

@@ -41,7 +41,7 @@ public class NewMessageServlet extends HttpServlet {
         LocalDate today = LocalDate.now();
         Message newMessage=new Message(1,Iam,id_to,text,today);
         messageDao.newMessage(newMessage);
-        logger.log(Level.INFO,String.format("User %s %s created new message",Iam.getFirstName(),Iam.getLastName()));
+        logger.log(Level.INFO,"User  created new message");
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/newMessage.jsp");
         requestDispatcher.forward(request, response);
     }

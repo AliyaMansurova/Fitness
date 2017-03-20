@@ -75,3 +75,54 @@ VALUES (2,7);
 
 INSERT INTO Friends (id_friend1,id_friend2)
 VALUES (7,2);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (8,12);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (12,8);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (1,11);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (11,1);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (3,6);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (6,3);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (3,7);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (7,3);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (2,10);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (10,2);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (7,10);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (9,5);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (7,5);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (11,8);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (1,10);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (11,12);
+
+INSERT INTO Friends (id_friend1,id_friend2)
+VALUES (9,13);
