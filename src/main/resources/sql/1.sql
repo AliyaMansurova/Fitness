@@ -1,9 +1,3 @@
-CREATE TABLE Gender (
-  code VARCHAR(20) NOT NULL PRIMARY KEY
-);
-CREATE TABLE Status (
-  code VARCHAR(32) NOT NULL PRIMARY KEY
-);
 CREATE TABLE User (
   id          INT AUTO_INCREMENT PRIMARY KEY,
   first_name  VARCHAR(50)  NOT NULL,
@@ -21,8 +15,6 @@ CREATE TABLE User (
   status_code VARCHAR(32) NOT NULL,
   rating INT,
 
-  FOREIGN KEY (gender_code) REFERENCES Gender (code),
-  FOREIGN KEY (status_code) REFERENCES Status (code),
   UNIQUE (email)
 );
 

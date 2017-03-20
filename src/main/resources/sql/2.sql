@@ -1,13 +1,3 @@
-INSERT INTO Gender (code)
-  SELECT 'Male' AS code
-  UNION ALL SELECT 'Female'
-  UNION ALL SELECT 'Unknown';
-
-  INSERT INTO Status (code)
-  SELECT 'Sportsman' AS code
-  UNION ALL SELECT 'Trainer'
-  UNION ALL SELECT 'Unknown';
-
 INSERT INTO User (first_name,last_name,patronymic,gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating)
 VALUES ('Иван',
         'Иванов',
