@@ -1,11 +1,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <title>$Title$</title>
+    <title>stretching</title>
 </head>
 <body/>
 <%@ include file="head.jsp"%>
-<% session.setAttribute("path","/stretching.jsp");%>
+<mytag:path path="/stretching.jsp"/>
 <c:choose>
     <c:when test="${sessionScope.locale eq 'ru_RU'}">
         <iframe width=100% height=100% align="center" src="https://www.youtube.com/embed/DtV1X3JD0RM" frameborder="0" allowfullscreen></iframe>

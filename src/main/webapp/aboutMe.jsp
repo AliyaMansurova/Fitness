@@ -3,9 +3,10 @@
 <html>
 <head>
     <link rel="stylesheet" href="/css/aboutMe.css">
+    <title>aboutMe</title>
 </head>
 <body>
-<%session.setAttribute("path","/aboutMe.jsp");%>
+<mytag:path path="/aboutMe.jsp"/>
 <c:if test="${sessionScope.containsKey('freeLogin')}">
             <span class="loginNotFree">
                 <fmt:message key="loginNotFree"/>

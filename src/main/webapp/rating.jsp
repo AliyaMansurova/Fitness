@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="/css/friends.css">
-<% session.setAttribute("path","/rating.jsp");%>
 <%@ include file="myPageHead.jsp" %>
 <html>
 <head>
+    <title>rating</title>
+    <link rel="stylesheet" href="/css/friends.css">
 </head>
 <body>
+<mytag:path path="/rating.jsp"/>
 <div class="empty"></div>
 <div class="friendsList">
     <c:forEach items="${sessionScope.rating}" var="foundProfile">

@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="/css/tasks.css">
-<% session.setAttribute("path", "/achievments.jsp");%>
 <%@ include file="myPageHead.jsp" %>
 <html>
 <head>
+    <link rel="stylesheet" href="/css/tasks.css">
+    <title>myAchievments</title>
 </head>
 <body>
+<mytag:path path="/achievments.jsp"/>
 <div class="taskList">
     <c:forEach items="${sessionScope.achievments}" var="achieve">
         <div class="taskItem">

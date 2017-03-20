@@ -1,9 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="myPageHead.jsp" %>
 <html>
-<head></head>
+<head>
+    <title>inMessages</title>
+</head>
 <body>
-<%session.setAttribute("path", "/inMessages.jsp");%>
+<mytag:path path="/inMessages.jsp"/>
 <div class="empty"></div>
 <div class="messagePage">
     <%@ include file="messagePanel.jsp" %>

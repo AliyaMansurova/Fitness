@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="/css/friends.css">
-<% session.setAttribute("path", "/friends.jsp");%>
 <%@ include file="myPageHead.jsp" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>myFriends</title>
+    <link rel="stylesheet" href="/css/friends.css">
 </head>
 <body>
+<mytag:path path="/friends.jsp"/>
 <div class="searchFriends">
     <form action="SearchFriendsServlet">
         <input type="text" class="textSearch" name="firstName" value="" pattern="[A-Za-zА-Яа-яЁё]{1,50}"/>

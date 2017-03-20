@@ -1,4 +1,5 @@
 <%@ include file="/contant/init/langInit.jsp"%>
+<%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="mytag"%>
 <link rel="stylesheet" href="/css/head.css">
 <div class="wrapper">
     <form action="/fitnesGuid.jsp">

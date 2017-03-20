@@ -5,7 +5,7 @@
 </head>
 <body/>
 <%@ include file="/head.jsp"%>
-<%session.setAttribute("path","/login.jsp");%>
+<mytag:path path="/login.jsp"/>
 <c:if test="${sessionScope.containsKey('invalidEmail')}">
             <span class="loginNotFree">
                 <fmt:message key="invalidEmail"/>
