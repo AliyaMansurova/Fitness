@@ -1,7 +1,9 @@
 package Servlets;
 
 import dao.UserDao;
+import listeners.dbIniter;
 import model.User;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -17,7 +19,6 @@ import java.util.List;
 @WebServlet(name = "SearchFriendsServlet")
 public class SearchFriendsServlet extends HttpServlet {
     private UserDao userDao;
-
     @Override
     public void init(ServletConfig config) throws ServletException {
         userDao = (UserDao) config.getServletContext().getAttribute("UserDao");

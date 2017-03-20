@@ -2,8 +2,11 @@ package Servlets;
 
 import dao.MessageDao;
 import dao.UserDao;
+import listeners.dbIniter;
 import model.Message;
 import model.User;
+import org.apache.log4j.Logger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -18,7 +21,6 @@ import java.util.List;
 public class MessageServlet extends HttpServlet {
     private MessageDao messageDao;
     private UserDao userDao;
-
     public void init(ServletConfig config) throws ServletException {
         messageDao = (MessageDao) config.getServletContext().getAttribute("MessageDao");
         userDao = (UserDao) config.getServletContext().getAttribute("UserDao");

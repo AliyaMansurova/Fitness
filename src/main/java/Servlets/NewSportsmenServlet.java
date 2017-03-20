@@ -1,6 +1,8 @@
 package Servlets;
 
+import listeners.dbIniter;
 import model.User;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,8 +16,8 @@ import java.util.List;
 
 @WebServlet(name = "NewSportsmenServlet")
 public class NewSportsmenServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

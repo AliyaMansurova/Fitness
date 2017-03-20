@@ -3,8 +3,10 @@ package Servlets;
 import dao.FriendDao;
 import dao.TrainingDao;
 import dao.UserDao;
+import listeners.dbIniter;
 import model.Training;
 import model.User;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -21,7 +23,7 @@ import java.util.List;
 public class DeleteTrainingServlet extends HttpServlet {
         private TrainingDao trainingDao;
         private UserDao userDao;
-
+    public static Logger logger = Logger.getLogger(dbIniter.class.getName());
         public void init(ServletConfig config) throws ServletException {
             trainingDao = (TrainingDao) config.getServletContext().getAttribute("TrainingDao");
             userDao = (UserDao) config.getServletContext().getAttribute("UserDao");

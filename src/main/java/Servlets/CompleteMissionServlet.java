@@ -2,8 +2,10 @@ package Servlets;
 
 import dao.MissionDao;
 import dao.UserDao;
+import listeners.dbIniter;
 import model.Mission;
 import model.User;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -19,7 +21,6 @@ import java.util.List;
 public class CompleteMissionServlet extends HttpServlet {
     private MissionDao missionDao;
     private UserDao userDao;
-
     public void init(ServletConfig config) throws ServletException {
         missionDao = (MissionDao) config.getServletContext().getAttribute("MissionDao");
         userDao = (UserDao) config.getServletContext().getAttribute("UserDao");

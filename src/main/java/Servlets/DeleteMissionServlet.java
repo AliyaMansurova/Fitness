@@ -2,8 +2,11 @@ package Servlets;
 
 import dao.MissionDao;
 import dao.UserDao;
+import listeners.dbIniter;
 import model.Mission;
 import model.User;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -19,7 +22,7 @@ import java.util.List;
 public class DeleteMissionServlet extends HttpServlet {
     private MissionDao missionDao;
     private UserDao userDao;
-
+    public static Logger logger = Logger.getLogger(dbIniter.class.getName());
     public void init(ServletConfig config) throws ServletException {
         missionDao = (MissionDao) config.getServletContext().getAttribute("MissionDao");
         userDao = (UserDao) config.getServletContext().getAttribute("UserDao");
@@ -29,6 +32,7 @@ public class DeleteMissionServlet extends HttpServlet {
         Integer idMission = Integer.valueOf(request.getParameter("deleteMission"));
         User user = (User) request.getSession().getAttribute("user");
         missionDao.deleteMission(idMission);
+        logger.log(Level.INFO,String.format("User %s %s deleted mission",user.getFirstName(),user.getLastName()));
         List<Mission>missionsForMySportsmans=missionDao.getTasksForSportsmans(user);
         request.getSession().setAttribute("missionsForMySportsmans", missionsForMySportsmans);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/tasksForMySportsmans.jsp");
@@ -39,6 +43,7 @@ public class DeleteMissionServlet extends HttpServlet {
         Integer idMission = Integer.valueOf(request.getParameter("deleteMission"));
         User user = (User) request.getSession().getAttribute("user");
         missionDao.deleteMission(idMission);
+        logger.log(Level.INFO,String.format("User %s %s deleted mission",user.getFirstName(),user.getLastName()));
         List<Mission> tasks = missionDao.getTasks(user);
         request.getSession().setAttribute("tasks", tasks);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/tasks.jsp");

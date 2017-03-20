@@ -1,7 +1,11 @@
 package Servlets;
 
 import dao.UserDao;
+import listeners.dbIniter;
 import model.User;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +19,7 @@ import java.time.LocalDate;
 @WebServlet(name = "RegisterServlet")
 public class RegisterServlet extends HttpServlet {
     private UserDao userDao;
+    public static Logger logger = Logger.getLogger(dbIniter.class.getName());
     @Override
     public void init(ServletConfig config) throws ServletException {
        userDao=(UserDao)config.getServletContext().getAttribute("UserDao");
@@ -47,6 +52,7 @@ public class RegisterServlet extends HttpServlet {
             User user = new User(1, firstname, lastname, patronymic, gender, dob, telephone, email, password, height, weight, country, city, status, rating);
             System.out.print(user.toString());
             userDao.create(user);
+            logger.log(Level.INFO,"Registered new user");
             path = "/successfulRegistration.jsp";
             request.getSession().removeAttribute("freeLogin");
         } else {

@@ -2,7 +2,10 @@ package Servlets;
 
 import dao.FriendDao;
 import dao.UserDao;
+import listeners.dbIniter;
 import model.User;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -21,7 +24,7 @@ public class SignInServlet extends HttpServlet {
     public static final String USER = "User";
     private UserDao userDao;
     private FriendDao friendDao;
-
+    public static Logger logger = Logger.getLogger(dbIniter.class.getName());
     public void init(ServletConfig config) throws ServletException {
 
         userDao = (UserDao) config.getServletContext().getAttribute("UserDao");
@@ -42,6 +45,7 @@ public class SignInServlet extends HttpServlet {
         user = Optional.ofNullable(userDao.getUserByLogin(login)).get().orElse(null);
         if (user != null)
             if (user.getPassword().equals(password)) {
+                logger.log(Level.INFO,String.format("User %s %s entered",user.getFirstName(),user.getLastName()));
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("id", user.getId());
                 request.getSession().setAttribute("firstName", user.getFirstName());

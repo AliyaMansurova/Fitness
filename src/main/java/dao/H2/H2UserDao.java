@@ -3,17 +3,17 @@ package dao.H2;
 import dao.UserDao;
 import lombok.SneakyThrows;
 import model.User;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class H2UserDao implements UserDao {
+    public static Logger logger = Logger.getLogger(H2UserDao.class.getName());
     private static final String SQL_SELECT_ALL = "SELECT id,first_name,last_name,patronymic," +
             "gender_code,dob,telephone,email,password,height,weight,country,city,status_code,rating FROM User";
     private DataSource dataSource;
@@ -23,7 +23,7 @@ public class H2UserDao implements UserDao {
     }
 
     @Override
-    @SneakyThrows
+
     public int create(User user) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT into User(first_name,last_name,patronymic," +
@@ -49,22 +49,24 @@ public class H2UserDao implements UserDao {
                 if (generatedKeys.next())
                     user.setId(generatedKeys.getInt(1));
             }
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in UserDAO"+e.getLocalizedMessage());
         }
         return user.getId();
     }
 
     @Override
-    @SneakyThrows
     public void remove(User user) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Users WHERE id=?")) {
             preparedStatement.setObject(1, user.getId());
             preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in UserDAO"+e.getLocalizedMessage());
         }
     }
 
     @Override
-    @SneakyThrows
     public List<User> getAll() {
         List<User> users = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
@@ -88,13 +90,16 @@ public class H2UserDao implements UserDao {
                         resultSet.getString("status_code"),
                         resultSet.getInt("rating")
                 ));
-            return users;
+
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in UserDAO"+e.getLocalizedMessage());
         }
+        return users;
     }
 
     @Override
-    @SneakyThrows
-    public List<User> rating() {List<User> users = new ArrayList<>();
+    public List<User> rating() {
+        List<User> users = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT id,first_name,last_name,patronymic," +
@@ -118,9 +123,11 @@ public class H2UserDao implements UserDao {
                         resultSet.getString("status_code"),
                         resultSet.getInt("rating")
                 ));
-            return users;
-        }
 
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in UserDAO"+e.getLocalizedMessage());
+        }
+        return users;
     }
 
 
@@ -138,7 +145,6 @@ public class H2UserDao implements UserDao {
     }
 
     @Override
-    @SneakyThrows
     public void update(User user) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE User SET first_name=?,last_name=?,patronymic=?," +
@@ -159,12 +165,13 @@ public class H2UserDao implements UserDao {
             preparedStatement.setObject(14, user.getRating());
             preparedStatement.setObject(15, user.getId());
             preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in UserDAO"+e.getLocalizedMessage());
         }
 
     }
 
     @Override
-    @SneakyThrows
     public List<User> searchUsers(User user) {
         List<User> foundUsers = new ArrayList<>();
         ResultSet resultSet;
@@ -202,7 +209,10 @@ public class H2UserDao implements UserDao {
                         )
                 );
             }
+
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in UserDAO"+e.getLocalizedMessage());
+        }
         return foundUsers;
     }
-}
 }

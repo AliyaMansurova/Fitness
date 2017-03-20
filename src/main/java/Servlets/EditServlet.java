@@ -1,7 +1,10 @@
 package Servlets;
 
 import dao.UserDao;
+import listeners.dbIniter;
 import model.User;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -17,7 +20,7 @@ import java.time.LocalDate;
 @WebServlet(name = "EditServlet")
 public class EditServlet extends HttpServlet {
     private UserDao userDao;
-
+    public static Logger logger = Logger.getLogger(dbIniter.class.getName());
     @Override
     public void init(ServletConfig config) throws ServletException {
         userDao = (UserDao) config.getServletContext().getAttribute("UserDao");
@@ -82,6 +85,7 @@ public class EditServlet extends HttpServlet {
         request.getSession().setAttribute("city", user.getCity());
         request.getSession().setAttribute("status", user.getStatus_code());
         request.getSession().setAttribute("rating", user.getRating());
+        logger.log(Level.INFO,String.format("User %s %s changed information",user.getFirstName(),user.getLastName()));
         request.getRequestDispatcher(path).forward(request, response);
     }
 

@@ -4,17 +4,16 @@ import dao.MissionDao;
 import lombok.SneakyThrows;
 import model.Mission;
 import model.User;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class H2MissionDao implements MissionDao {
-
+    public static Logger logger = Logger.getLogger(H2MissionDao.class.getName());
     private DataSource dataSource;
 
     public H2MissionDao(DataSource dataSource) {
@@ -22,11 +21,10 @@ public class H2MissionDao implements MissionDao {
     }
 
     @Override
-    @SneakyThrows
     public void newMission(Mission mission) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Mission" +
-                     "(id_trainer,id_sportsman,mission,state,date_m)"+
+                     "(id_trainer,id_sportsman,mission,state,date_m)" +
                      "VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, mission.getId_trainer().getId());
             preparedStatement.setObject(2, mission.getId_sportsman().getId());
@@ -38,33 +36,37 @@ public class H2MissionDao implements MissionDao {
                 if (generatedKeys.next())
                     mission.setId(generatedKeys.getInt(1));
             }
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in MissionDAO"+e.getLocalizedMessage());
         }
+
     }
 
     @Override
-    @SneakyThrows
     public void missionIsDone(int id) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Mission SET state=TRUE WHERE id=?")) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in MissionDAO"+e.getLocalizedMessage());
         }
 
     }
 
     @Override
-    @SneakyThrows
     public void deleteMission(int id) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Mission WHERE id=?")) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in MissionDAO"+e.getLocalizedMessage());
         }
     }
 
 
     @Override
-    @SneakyThrows
     public List<Mission> getAchievements(User user) {
         List<Mission> achievments = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
@@ -96,13 +98,14 @@ public class H2MissionDao implements MissionDao {
                         resultSet.getBoolean("state"),
                         resultSet.getDate("date_m").toLocalDate()));
             }
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in MissionDAO"+e.getLocalizedMessage());
         }
         return achievments;
     }
 
 
     @Override
-    @SneakyThrows
     public List<Mission> getTasks(User user) {
         List<Mission> tasks = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
@@ -134,12 +137,13 @@ public class H2MissionDao implements MissionDao {
                         resultSet.getBoolean("state"),
                         resultSet.getDate("date_m").toLocalDate()));
             }
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in MissionDAO"+e.getLocalizedMessage());
         }
         return tasks;
     }
 
     @Override
-    @SneakyThrows
     public List<Mission> getTasksForSportsmans(User user) {
         List<Mission> tasks = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
@@ -171,6 +175,8 @@ public class H2MissionDao implements MissionDao {
                         resultSet.getBoolean("state"),
                         resultSet.getDate("date_m").toLocalDate()));
             }
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, "Error in MissionDAO"+e.getLocalizedMessage());
         }
         return tasks;
 

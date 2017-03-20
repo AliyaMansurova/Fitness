@@ -3,9 +3,11 @@ package Servlets;
 import dao.MissionDao;
 import dao.TrainingDao;
 import dao.UserDao;
+import listeners.dbIniter;
 import model.Message;
 import model.Mission;
 import model.User;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -23,7 +25,7 @@ public class MyMissionsServlet extends HttpServlet {
     private MissionDao missionDao;
     private UserDao userDao;
     private TrainingDao trainingDao;
-
+    public static Logger logger = Logger.getLogger(dbIniter.class.getName());
     public void init(ServletConfig config) throws ServletException {
         missionDao = (MissionDao) config.getServletContext().getAttribute("MissionDao");
         userDao = (UserDao) config.getServletContext().getAttribute("UserDao");

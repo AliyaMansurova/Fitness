@@ -2,8 +2,10 @@ package Servlets;
 
 import dao.MessageDao;
 import dao.UserDao;
+import listeners.dbIniter;
 import model.Message;
 import model.User;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -19,6 +21,7 @@ import java.util.List;
 public class DeleteMessageServlet extends HttpServlet {
     private MessageDao messageDao;
     private UserDao userDao;
+    public static Logger logger = Logger.getLogger(dbIniter.class.getName());
 
     public void init(ServletConfig config) throws ServletException {
         messageDao = (MessageDao) config.getServletContext().getAttribute("MessageDao");
@@ -33,16 +36,12 @@ public class DeleteMessageServlet extends HttpServlet {
         Integer idMessage = Integer.valueOf(request.getParameter("deleteMessage"));
         User user = (User) request.getSession().getAttribute("user");
         RequestDispatcher requestDispatcher;
-        if (user != null) {
-            messageDao.deleteMessage(idMessage);
-            List<Message> inMessages = messageDao.inMessagesOfUser(user);
-            List<Message> outMessages = messageDao.outMessagesOfUser(user);
-            request.getSession().setAttribute("inMessages", inMessages);
-            request.getSession().setAttribute("outMessages", outMessages);
-            requestDispatcher = request.getRequestDispatcher("/inMessages.jsp");
-        } else {
-            requestDispatcher = request.getRequestDispatcher("/index.jsp");
-        }
+        messageDao.deleteMessage(idMessage);
+        List<Message> inMessages = messageDao.inMessagesOfUser(user);
+        List<Message> outMessages = messageDao.outMessagesOfUser(user);
+        request.getSession().setAttribute("inMessages", inMessages);
+        request.getSession().setAttribute("outMessages", outMessages);
+        requestDispatcher = request.getRequestDispatcher("/inMessages.jsp");
         requestDispatcher.forward(request, response);
     }
 }
