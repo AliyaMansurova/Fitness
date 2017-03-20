@@ -151,7 +151,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>NewSportsmenServlet</servlet-name>
-        <servlet-class>Servlets.NewSportsmenServlet</servlet-class>
+        <servlet-class>Servlets.NewSportsmanServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>NewSportsmenServlet</servlet-name>

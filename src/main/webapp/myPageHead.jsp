@@ -7,27 +7,27 @@
         </c:when>
         <c:otherwise>
         <div class="imgBlockProfile"><img class="imgProfile" src="/contant/images/logo.jpg"></div>
-        <div class="textblok">
+        <div class="profileTextBlock">
             <div class="textName">${sessionScope.user.firstName} ${sessionScope.user.lastName}</div>
-            <div class="textItem">
+            <div class="profileTextItem">
                 <fmt:message key="rating"/>:${sessionScope.user.rating}
             </div>
-            <div class="textItem">
+            <div class="profileTextItem">
                 <fmt:message key="status"/>:${sessionScope.user.status_code}
             </div>
-            <div class="textItem">
+            <div class="profileTextItem">
                 <fmt:message key="dob"/>:${sessionScope.user.dob}
             </div>
-            <div class="textItem">
+            <div class="profileTextItem">
                 <fmt:message key="country"/>:${sessionScope.user.country}
             </div>
-            <div class="textItem">
+            <div class="profileTextItem">
                 <fmt:message key="city"/>:${sessionScope.user.city}
             </div>
-            <div class="textItem">
+            <div class="profileTextItem">
                 <fmt:message key="height"/>:${sessionScope.user.height}
             </div>
-            <div class="textItem">
+            <div class="profileTextItem">
                 <fmt:message key="weight"/>:${sessionScope.user.weight}
             </div>
             </c:otherwise>

@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "NewSportsmenServlet")
-public class NewSportsmenServlet extends HttpServlet {
+@WebServlet(name = "NewSportsmanServlet")
+public class NewSportsmanServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -23,13 +23,12 @@ public class NewSportsmenServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> friends = (List<User>) request.getSession().getAttribute("friends");
         List<User> sportsman = (List<User>) request.getSession().getAttribute("mySportsmans");
-        List<User> sp=new ArrayList<>();
-        for (User u:sportsman)
-            if (!friends.contains(u))
-                sp.add(u);
-
-        System.out.print(sp+"1111111111");
-        request.getSession().setAttribute("newSportsmans",sp);
+        List<User> newSportsman=new ArrayList<>();
+        for(User u:friends)
+            if (!sportsman.contains(u))
+                newSportsman.add(u);
+        System.out.print(newSportsman+"1111111111");
+        request.getSession().setAttribute("newSportsmans",newSportsman);
         RequestDispatcher requestDispatcher=request.getRequestDispatcher("/newSportsman.jsp");
         requestDispatcher.forward(request, response);
     }

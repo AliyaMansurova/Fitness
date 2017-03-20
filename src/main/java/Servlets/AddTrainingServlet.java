@@ -40,7 +40,7 @@ public class AddTrainingServlet extends HttpServlet {
         trainingDao.addTraining(user.getId(), idSportsman);
         logger.log(Level.INFO,String.format("User %s %s adds training",user.getFirstName(),user.getLastName()));
         List<Integer> SportsmanId = trainingDao.getSportsmansId(user.getId());
-        requestDispatcher = request.getRequestDispatcher("/friends.jsp");
+        requestDispatcher = request.getRequestDispatcher("/mySportsmans.jsp");
         requestDispatcher.forward(request, response);
     }
 }
