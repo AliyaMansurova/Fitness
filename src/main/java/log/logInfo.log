@@ -1,2 +1,11 @@
-2017-03-21 00:19:37 INFO  dbIniter:48 - User  entered
-2017-03-21 00:19:47 INFO  dbIniter:19 - User left
+2017-03-23 00:14:40 INFO  dbIniter:48 - User  entered
+2017-03-23 00:14:55 INFO  dbIniter:44 - User adds friend
+2017-03-23 00:15:03 INFO  dbIniter:88 - User changed information
+2017-03-23 00:15:08 INFO  dbIniter:46 - User deleted mission
+2017-03-23 00:15:19 INFO  dbIniter:35 - User deleted mission
+2017-03-23 00:15:27 INFO  dbIniter:43 - created new mission
+2017-03-23 00:15:33 INFO  dbIniter:41 - User adds training
+2017-03-23 00:15:46 INFO  dbIniter:46 - User  created new message
+2017-03-23 00:15:55 INFO  dbIniter:19 - User left
+2017-03-23 00:16:03 INFO  dbIniter:20 - Locale was changed
+2017-03-23 00:16:10 INFO  dbIniter:20 - Locale was changed

@@ -21,6 +21,7 @@ import java.util.List;
 public class MessageServlet extends HttpServlet {
     private MessageDao messageDao;
     private UserDao userDao;
+
     public void init(ServletConfig config) throws ServletException {
         messageDao = (MessageDao) config.getServletContext().getAttribute("MessageDao");
         userDao = (UserDao) config.getServletContext().getAttribute("UserDao");
@@ -34,15 +35,11 @@ public class MessageServlet extends HttpServlet {
         RequestDispatcher requestDispatcher;
         User user;
         user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
-            List<Message> inMessages = messageDao.inMessagesOfUser(user);
-            List<Message> outMessages = messageDao.outMessagesOfUser(user);
-            request.getSession().setAttribute("inMessages", inMessages);
-            request.getSession().setAttribute("outMessages", outMessages);
-            requestDispatcher = request.getRequestDispatcher("/inMessages.jsp");
-        } else {
-            requestDispatcher = request.getRequestDispatcher("/index.jsp");
-        }
+        List<Message> inMessages = messageDao.inMessagesOfUser(user);
+        List<Message> outMessages = messageDao.outMessagesOfUser(user);
+        request.getSession().setAttribute("inMessages", inMessages);
+        request.getSession().setAttribute("outMessages", outMessages);
+        requestDispatcher = request.getRequestDispatcher("/inMessages.jsp");
         requestDispatcher.forward(request, response);
     }
 

@@ -33,14 +33,16 @@ public class NewMessageServlet extends HttpServlet {
         messageDao=(MessageDao)config.getServletContext().getAttribute("MessageDao");
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User Iam= (User) request.getSession().getAttribute("user");
+        User user= (User) request.getSession().getAttribute("user");
         String friend=request.getParameter("friends");
         Integer id=Integer.valueOf(friend);
         User id_to=userDao.get(id).get();
         String text=request.getParameter("message");
         LocalDate today = LocalDate.now();
-        Message newMessage=new Message(1,Iam,id_to,text,today);
+        Message newMessage=new Message(1,user,id_to,text,today);
         messageDao.newMessage(newMessage);
+        List<Message> outMessages = messageDao.outMessagesOfUser(user);
+        request.getSession().setAttribute("outMessages", outMessages);
         logger.log(Level.INFO,"User  created new message");
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/newMessage.jsp");
         requestDispatcher.forward(request, response);
